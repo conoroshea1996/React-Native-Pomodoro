@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 import { Platform, StyleSheet, Text, View } from 'react-native';
+import CountDown from 'react-native-countdown-component';
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -7,10 +10,18 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component {
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.Timer}>Hello</Text>
+        <CountDown
+          until={1000}
+          onFinish={() => alert('finished')}
+          onPress={() => alert('hello')}
+          size={20}
+          running={this.state.isRunning}
+        />
       </View>
     );
   }
