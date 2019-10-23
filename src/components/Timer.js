@@ -8,6 +8,7 @@ export default class Timer extends Component {
             isRunning: true,
             relax: '#EA4444',
             time: 10,
+            uniqueValue: 1,
         }
     }
     toggleTimer = () => {
@@ -15,6 +16,13 @@ export default class Timer extends Component {
     }
     toggleWork = () => {
         this.setState({ relax: '#58CCED', time: 20 })
+    }
+    forceReset = () => {
+        this.setState({
+            relax: '#EA4444',
+            time: 10,
+            uniqueValue: this.state.uniqueValue + 1
+        })
     }
     render() {
         console.log(this.state.time);
@@ -31,6 +39,9 @@ export default class Timer extends Component {
                 />
                 <TouchableOpacity onPress={this.toggleTimer}>
                     <Text>Play / Pause</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this.forceRemount}>
+                    <Text>Reset Button</Text>
                 </TouchableOpacity>
             </View>
         );
