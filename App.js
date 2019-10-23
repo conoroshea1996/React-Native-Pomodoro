@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import CountDown from 'react-native-countdown-component';
 
 
@@ -10,7 +10,15 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component {
-
+  constructor() {
+    super()
+    this.state = {
+      isRunning: true,
+    }
+  }
+  toggleTimer = () => {
+    this.setState({ isRunning: !this.state.isRunning })
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -22,6 +30,9 @@ export default class App extends Component {
           size={20}
           running={this.state.isRunning}
         />
+        <TouchableOpacity onPress={this.toggleTimer}>
+          <Text>Play / Pause</Text>
+        </TouchableOpacity>
       </View>
     );
   }
