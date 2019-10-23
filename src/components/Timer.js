@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import CountDown from 'react-native-countdown-component';
 export default class Timer extends Component {
     constructor() {
@@ -37,12 +38,15 @@ export default class Timer extends Component {
                     size={20}
                     running={this.state.isRunning}
                 />
-                <TouchableOpacity onPress={this.toggleTimer}>
-                    <Text>Play / Pause</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={this.forceRemount}>
-                    <Text>Reset Button</Text>
-                </TouchableOpacity>
+                <View style={styles.btns}>
+                    <TouchableOpacity style={styles.btn} onPress={this.toggleTimer}>
+                        <Icon name="play-circle" size={30} color="white" />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.btn} onPress={this.forceReset}>
+                        <Icon name='undo' size={30} color='white' />
+                    </TouchableOpacity>
+                </View>
             </View>
         );
     }
@@ -58,5 +62,19 @@ const styles = StyleSheet.create({
         fontSize: 30,
         textAlign: 'center',
         color: 'white',
+    },
+    btns: {
+        flexDirection: 'row',
+        margin: 'auto',
+        width: '80%',
+        justifyContent: 'center'
+    },
+    btn: {
+        padding: 10,
+        marginHorizontal: 5,
+        borderColor: 'white',
+        backgroundColor: 'rgba(230, 230, 230,0.24)',
+        borderWidth: 3,
+        borderRadius: 5
     }
 });

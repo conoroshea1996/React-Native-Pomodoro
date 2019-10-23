@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
-import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native'; import Timer from './src/components/Timer';
+import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import Timer from './src/components/Timer';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
