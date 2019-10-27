@@ -8,7 +8,7 @@ export default class Timer extends Component {
         this.state = {
             isRunning: true,
             relax: '#EA4444',
-            time: 10,
+            time: 30*60,
             uniqueValue: 1,
         }
     }
@@ -16,12 +16,12 @@ export default class Timer extends Component {
         this.setState({ isRunning: !this.state.isRunning })
     }
     toggleWork = () => {
-        this.setState({ relax: '#58CCED', time: 20 })
+        this.setState({ relax: '#58CCED', time: 10*60 })
     }
     forceReset = () => {
         this.setState({
             relax: '#EA4444',
-            time: 10,
+            time: 30*60,
             uniqueValue: this.state.uniqueValue + 1
         })
     }
